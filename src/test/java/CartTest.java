@@ -79,7 +79,7 @@ public class CartTest extends BaseTest{
         driver.navigate().to("https://ecommerce-playground.lambdatest.io/index.php?route=common/home");
         cartPage.clickSearchForProducts();
         cartPage.enterTextToSearch("HTC Touch HD");
-        Thread.sleep(5000);
+        Thread.sleep(4000);
         cartPage.clickSearchButton();
         cartPage.clickFirstItem();
         cartPage.clickAddToCartButton();
