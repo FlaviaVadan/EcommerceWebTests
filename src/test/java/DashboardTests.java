@@ -1,15 +1,11 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.pages.DashboardPage;
-import org.pages.LoginPage;
-import org.pages.MyAccountPage;
 import org.pages.RegisterAccountPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import static util.TestUtil.generateRandomEmail;
 
 public class DashboardTests {
@@ -49,6 +45,11 @@ public class DashboardTests {
             registerAccountPage.setPasswordConfirmInput("Password123");
             registerAccountPage.checkPrivacyPolicy();
             registerAccountPage.clickContinue();
+    }
+    @AfterTest
+    public void tearDown() {
+        System.out.println("Closing the driver ...");
+        driver.quit();
     }
 
 

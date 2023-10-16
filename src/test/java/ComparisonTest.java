@@ -1,6 +1,5 @@
 import org.pages.*;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class ComparisonTest extends BaseTest{

@@ -1,6 +1,4 @@
-
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest{
@@ -97,7 +95,7 @@ public class CartTest extends BaseTest{
         cartPage.clickGetQuotes();
         Thread.sleep(3000);
         cartPage.clickFlatRate();
-        cartPage.clickApplyShpping();
+        cartPage.clickApplyShipping();
         Thread.sleep(2000);
         String actualValue = cartPage.getConfirmMessage();
         String expectedValue = "Success: Your shipping estimate has been applied!";
