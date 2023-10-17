@@ -11,7 +11,6 @@ public class DashboardPage extends BasePage {
     private By firstSectionHeader = By.xpath(".//h2[@class='card-header h5']");
     private By editAccountElement = By.xpath(".//div[@id='content']//a[contains(@href, 'account/edit')]");
 
-
     public String getFirstSectionHeaderText() {
         return driver.findElement(firstSectionHeader).getText();
     }

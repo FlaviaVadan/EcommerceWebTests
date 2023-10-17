@@ -20,11 +20,9 @@ public class ComparisonTest extends BaseTest{
         myAccountPage.clickCamerasCategory();
         myAccountPage.clickFirstItem();
         myAccountPage.clickCompareButtonFirstElement();
-        Thread.sleep(3000);
         driver.navigate().back();
         myAccountPage.clickSecondItem();
         myAccountPage.clickCompareButtonSecondElement();
-        Thread.sleep(7000);
         myAccountPage.clickClosePopupButton();
         menuPage.clickCompareButton();
         ComparisonPage comparisonPage= new ComparisonPage(driver);

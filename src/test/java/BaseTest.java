@@ -5,6 +5,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.pages.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import java.time.Duration;
+
 
 public class BaseTest {
     public WebDriver driver;
@@ -31,6 +33,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-fullscreen");
         driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         searchResultsPage= new SearchResultsPage(driver);
         action= new Actions(driver);
         registerAccountPage= new RegisterAccountPage(driver);

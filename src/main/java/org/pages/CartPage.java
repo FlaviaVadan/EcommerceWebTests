@@ -7,7 +7,6 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
-
     private By searchButton = By.xpath("//*[@id=\"search\"]/div[2]/button");
     private By searchProducts = By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div[2]/input");
     private By firstItem = By.xpath(".//a[@class='text-ellipsis-2']");
@@ -64,19 +63,21 @@ public class CartPage extends BasePage {
     }
 
     public void clickCartIcon() {
-        driver.findElement(cartIcon).click();
+        waitForElementToBeClickable(cartIcon).click();
     }
 
     public void clickFirstItem() {
         driver.findElement(firstItem).click();
     }
 
-    public String getTotalToPay() {
+    public String getTotalToPay() throws InterruptedException {
+        waitForElementToHaveText(totalToPay);
         return driver.findElement(totalToPay).getText();
     }
 
-    public void clickPopUpButton() {
-        driver.findElement(popUpButton).click();
+    public void clickPopUpButton() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToBeClickable(popUpButton).click();
     }
 
     public void clickEditCartButton() {
@@ -116,7 +117,9 @@ public class CartPage extends BasePage {
         driver.findElement(applyCoupon).click();
     }
 
-    public String getWarningMessage() {
+    public String getWarningMessage() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToNotHaveText(warningMessage, "Loading...");
         return driver.findElement(warningMessage).getText().split("\n")[0];
     }
 
@@ -144,6 +147,7 @@ public class CartPage extends BasePage {
     }
 
     public void clickUseGiftCertificate() {
+        waitForElementToBeClickable(useGiftCertificate).click();
         driver.findElement(useGiftCertificate).click();
     }
 
@@ -167,7 +171,9 @@ public class CartPage extends BasePage {
         driver.findElement(checkoutButton).click();
     }
 
-    public String getItemPrice() {
+    public String getItemPrice() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToNotHaveText(itemPrice, "Loading...");
         return driver.findElement(itemPrice).getText();
     }
 

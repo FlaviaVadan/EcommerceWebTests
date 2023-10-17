@@ -8,7 +8,6 @@ public class MyAccountPage extends BasePage {
     }
 
     private By subscribeNewsletter = By.xpath("//*[@id=\"content\"]/div[1]/div/div/div[5]/a");
-
     private By editYourAccountInformation = By.xpath("//*[@id=\"content\"]/div[1]/div/div/div[1]/a");
     private By ViewOrderHistory = By.xpath("//*[@id=\"content\"]/div[2]/div/div/div[1]/a");
     private By modifyWishlist = By.xpath("//*[@id=\"content\"]/div[1]/div/div/div[4]/a");
@@ -24,7 +23,7 @@ public class MyAccountPage extends BasePage {
     private By closePopupButton = By.xpath("//*[@id=\"notification-box-top\"]/div/div[1]/button");
     private By addToCartButton = By.xpath("//*[@id=\"entry_216842\"]/button");
     private By popUpButton = By.xpath("//*[@id=\"notification-box-top\"]/div/div[1]/button/span");
-    private By cartIcon = By.xpath("//*[@id=\"entry_217825\"]/a/div[1]");
+    private By cartIcon = By.id("entry_217825");
     private By plusIcon = By.xpath("//*[@id=\"entry_216841\"]/div/div[2]/button/i");
     private By returnRequests = By.xpath("//*[@id=\"content\"]/div[2]/div/div/div[4]/a");
     private By messageReturn = By.xpath("//*[@id=\"content\"]/p");
@@ -67,6 +66,7 @@ public class MyAccountPage extends BasePage {
     }
 
     public String getWarningMessage() {
+        waitForElementToHaveText(warningMessage);
         return driver.findElement(warningMessage).getText();
     }
 
@@ -82,16 +82,20 @@ public class MyAccountPage extends BasePage {
         driver.findElement(secondItem).click();
     }
 
-    public void clickClosePopupButton() {
-        driver.findElement(closePopupButton).click();
+    public void clickClosePopupButton() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToBeClickable(popUpButton).click();
+       // driver.findElement(closePopupButton).click();
     }
 
     public void clickAddToCartButton() {
         driver.findElement(addToCartButton).click();
     }
 
-    public void clickPopUpButton() {
-        driver.findElement(popUpButton).click();
+    public void clickPopUpButton() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToBeClickable(popUpButton).click();
+
     }
 
     public void clickCartIcon() {

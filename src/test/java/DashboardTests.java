@@ -27,10 +27,9 @@ public class DashboardTests {
     }
 
     @Test
-    public void verifyDashboardFirstSection() throws InterruptedException {
+    public void verifyDashboardFirstSection() {
         String expectedFirstSectionHeaderText = "My Account";
         String expectedEditAccountElementText = "Edit your account information";
-        Thread.sleep(2000);
         driver.navigate().to("https://ecommerce-playground.lambdatest.io/index.php?route=account/account");
         Assert.assertEquals(dashboardPage.getFirstSectionHeaderText(), expectedFirstSectionHeaderText, "First section header text is not the expected one");
         Assert.assertEquals(dashboardPage.getEditAccountElementText(), expectedEditAccountElementText, "Edit account element text is not the expected one");

@@ -11,20 +11,15 @@ public class WishlistFlowsTests extends  BaseTest{
         driver.navigate().to("https://ecommerce-playground.lambdatest.io/index.php?route=account/register");
         String expectedResult = "No results!";
         wishlistPage.clickWishList();
-        Thread.sleep(5000);
         String actualResult = wishlistPage.getNoResultsElementText();
         Assert.assertEquals(actualResult, expectedResult, "Text from element is not the expected one.");
         wishlistPage.enterTextToSearch("Apple Cinema 30");
         wishlistPage.clickSearchButton();
-        Thread.sleep(1000);
         WebElement item = searchResultsPage.getFirstItem();
         searchResultsPage.clickFirstItem();
-        Thread.sleep(5000);
         searchResultsPage.clickWishHeart();
-        Thread.sleep(1000);
         searchResultsPage.clickClosePopupButton();
         searchResultsPage.clickWishlist();
-        Thread.sleep(4000);
         int noOfItems = wishlistPage.getWishlistItems().size();
         Assert.assertTrue(noOfItems == 1, "Wishlist is empty");
         wishlistPage.clickRemoveItemFromWishlistButton();
@@ -56,7 +51,6 @@ public class WishlistFlowsTests extends  BaseTest{
         registerAccountPage.setPasswordConfirmInput("Password123");
         registerAccountPage.checkPrivacyPolicy();
         registerAccountPage.clickContinue();
-        Thread.sleep(2000);
         String actualText = accountCreatedPage.getParagraphText();
         String expectedText = "Congratulations! Your new account has been successfully created!";
         Assert.assertEquals(actualText, expectedText, "Actual text is not the expected one.");

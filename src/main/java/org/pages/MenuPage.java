@@ -14,8 +14,8 @@ public class MenuPage extends BasePage {
     private By messageSpecialOffers = By.xpath("//*[@id=\"entry_212499\"]/p");
     private By blog = By.xpath("//*[@id=\"widget-navbar-217834\"]/ul/li[3]/a/div/span");
     private By firstItem = By.xpath(".//img[@class='lazy-load']");
-    private By yourName = By.xpath("//*[@id=\"input-name\"]");
-    private By email = By.xpath("//*[@id=\"input-email\"]");
+    private By yourName = By.id("input-name");
+    private By email = By.id("input-email");
     private By yourComment = By.xpath("//*[@id=\"input-comment\"]");
     private By postComment = By.xpath("//*[@id=\"button-comment\"]");
     private By approvalComment = By.xpath(".//div[contains( text(),' Thank you for your comment. It has been submitted to the webmaster for approval.')]");

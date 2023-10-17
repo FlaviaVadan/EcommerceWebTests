@@ -15,7 +15,6 @@ public class RegisterAccountTests extends BaseTest{
         registerAccountPage.setPasswordConfirmInput("Password123");
         registerAccountPage.checkPrivacyPolicy();
         registerAccountPage.clickContinue();
-        Thread.sleep(2000);
         String actualText = accountCreatedPage.getParagraphText();
         String expectedText = "Congratulations! Your new account has been successfully created!";
         Assert.assertEquals(actualText, expectedText, "Actual text is not the expected one.");

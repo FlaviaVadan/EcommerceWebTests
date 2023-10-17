@@ -7,7 +7,7 @@ public class ForgottenPasswordPage extends BasePage {
         super(driver);
     }
 
-    private By insertEmailAddress = By.xpath("//*[@id=\"input-email\"]");
+    private By insertEmailAddress = By.id("input-email");
     private By continueButton = By.xpath("//*[@id=\"content\"]/form/div/div[2]/button");
     private By confirmationMessage = By.xpath("//*[@id=\"account-login\"]/div[1]");
 

@@ -7,7 +7,6 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
-
     private By firstName = By.xpath("//input[@id='input-payment-firstname']");
     private By lastName = By.xpath("//*[@id=\"input-payment-lastname\"]");
     private By addressOne = By.xpath("//*[@id=\"input-payment-address-1\"]");
@@ -22,6 +21,7 @@ public class CheckoutPage extends BasePage {
     private By email = By.xpath(".//input[@id='input-payment-email']");
     private By telephone = By.xpath(".//input[@id='input-payment-telephone']");
     private By noOfItems = By.xpath("//input[starts-with(@id, 'quantity')]");
+    private By quantityItems= By.xpath("//input[starts-with(@id, 'quantity')]");
 
 
     public void clickFirstName() {
@@ -64,7 +64,8 @@ public class CheckoutPage extends BasePage {
     }
 
     public void clickConfirmOrder() {
-        driver.findElement(confirmOrder).click();
+        waitForElementToBeClickable(confirmOrder).click();
+
     }
 
     public String getConfirmOrderMessage() {
@@ -86,6 +87,8 @@ public class CheckoutPage extends BasePage {
     public Integer getNoOfItems() {
         return Integer.parseInt(driver.findElement(noOfItems).getAttribute("value"));
     }
-
+    public Integer getQuantityItems(){
+        return Integer.parseInt(driver.findElement(quantityItems).getAttribute("value"));
+}
 
 }

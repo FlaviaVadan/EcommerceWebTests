@@ -23,8 +23,10 @@ public class SearchResultsPage extends BasePage {
         return driver.findElements(resultItems).get(0);
     }
 
-    public void clickClosePopupButton() {
-        driver.findElement(closePopupButton).click();
+    public void clickClosePopupButton() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementToBeClickable(closePopupButton).click();
+
     }
 
     public void clickWishlist() {
